@@ -8,4 +8,9 @@
 <% end %>
 
 
-<%= link_to "Write a review", new_restaurant_review_path(@restaurant) %>
+<p>New review for <%= @restaurant.name %></p>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
